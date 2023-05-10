@@ -563,6 +563,7 @@ pub struct LastCommitInfo {
 /// Event allows application developers to attach additional information to
 /// ResponseBeginBlock, ResponseEndBlock, ResponseCheckTx and ResponseDeliverTx.
 /// Later, transactions may be queried using these events.
+#[derive(::serde::Deserialize, ::serde::Serialize)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Event {
@@ -572,6 +573,7 @@ pub struct Event {
     pub attributes: ::prost::alloc::vec::Vec<EventAttribute>,
 }
 /// EventAttribute is a single key-value pair, associated with an event.
+#[derive(::serde::Deserialize, ::serde::Serialize)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct EventAttribute {

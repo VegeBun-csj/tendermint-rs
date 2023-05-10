@@ -79,6 +79,8 @@ pub static CUSTOM_TYPE_ATTRIBUTES: &[(&str, &str)] = &[
     (".tendermint.types.Evidence", EVIDENCE_VARIANT),
     (".tendermint.types.TxProof", SERIALIZED),
     (".tendermint.crypto.Proof", SERIALIZED),
+    (".tendermint.abci.Event", SERIALIZED),
+    (".tendermint.abci.EventAttribute", SERIALIZED),
 ];
 
 /// Custom field attributes applied on top of protobuf fields in (a) struct(s)
