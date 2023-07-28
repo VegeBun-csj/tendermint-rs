@@ -52,7 +52,7 @@ pub trait Client {
     where
         V: Into<Vec<u8>> + Send,
     {
-        tracing::debug!("start abci query....");
+        println!("start abci query....");
         Ok(self
             .perform(abci_query::Request::new(path, data, height, prove))
             .await?
