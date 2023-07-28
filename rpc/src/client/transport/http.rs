@@ -156,8 +156,8 @@ impl TryFrom<HttpClientUrl> for hyper::Uri {
 }
 
 mod sealed {
-    use std::io::Read;
-
+    use std::{io::Read, println};
+    
     use http::header::AUTHORIZATION;
     use hyper::{
         body::Buf,
