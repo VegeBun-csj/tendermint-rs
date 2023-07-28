@@ -6,6 +6,7 @@ pub mod sync;
 
 mod transport;
 use core::{fmt, time::Duration};
+use std::println;
 
 use async_trait::async_trait;
 use serde::{de::DeserializeOwned, Serialize};
