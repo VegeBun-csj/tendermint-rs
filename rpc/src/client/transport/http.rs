@@ -7,7 +7,7 @@ use core::{
 
 use async_trait::async_trait;
 use tendermint_config::net;
-
+use std::println;
 use crate::{client::Client, prelude::*, Error, Scheme, SimpleRequest, Url};
 
 /// A JSON-RPC/HTTP Tendermint RPC client (implements [`crate::Client`]).
@@ -190,13 +190,13 @@ mod sealed {
         where
             R: SimpleRequest,
         {
-            tracing::debug!("start performing....");
+            println!("start performing....");
             let request = self.build_request(request)?;
-            tracing::debug!("start res....");
+            println!("start res....");
             let response = self.inner.request(request).await.map_err(Error::hyper)?;
-            tracing::debug!("start res body....");
+            println!("start res body....");
             let response_body = response_to_string(response).await?;
-            tracing::debug!("Incoming response: {}", response_body);
+            println!("Incoming response: {}", response_body);
             R::Response::from_string(&response_body)
         }
     }
@@ -207,7 +207,7 @@ mod sealed {
             &self,
             request: R,
         ) -> Result<hyper::Request<hyper::Body>, Error> {
-            tracing::debug!("start building....");
+            println!("start building....");
             let request_body = request.into_json();
 
             tracing::debug!("Outgoing request: {}", request_body);
