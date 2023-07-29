@@ -58,7 +58,7 @@ pub trait Client {
         match res {
             Ok(response) => {
                 println!("接受查询成功");
-                Ok(response)
+                response
             }
             Err(err) => {
                 println!("查询遇到的错误为:{:?}", err);
