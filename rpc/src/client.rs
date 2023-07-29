@@ -54,17 +54,21 @@ pub trait Client {
         V: Into<Vec<u8>> + Send,
     {
         println!("start abci query....");
-        let res =  self.perform(abci_query::Request::new(path, data, height, prove)).await;
-        match res {
-            Ok(response) => {
-                println!("接受查询成功");
-                response
-            }
-            Err(err) => {
-                println!("查询遇到的错误为:{:?}", err);
-                Err(err)
-            }
-        }
+        // let res =  self.perform(abci_query::Request::new(path, data, height, prove)).await;
+        // match res {
+        //     Ok(response) => {
+        //         println!("接受查询成功");
+        //         response
+        //     }
+        //     Err(err) => {
+        //         println!("查询遇到的错误为:{:?}", err);
+        //         Err(err)
+        //     }
+        // }
+        Ok(self
+            .perform(abci_query::Request::new(path, data, height, prove))
+            .await?
+            .response)
     }
 
     /// `/block`: get block at a given height.
