@@ -192,9 +192,9 @@ mod sealed {
         {
             println!("start performing....");
             let request = self.build_request(request)?;
-            println!("start res....");
+            println!("start res....:{:?}", request);
             let response = self.inner.request(request).await.map_err(Error::hyper)?;
-            println!("start res body....");
+            println!("start res body....:{:?}", response);
             let response_body = response_to_string(response).await?;
             tracing::debug!("Incoming response: {}", response_body);
             R::Response::from_string(&response_body)
@@ -209,7 +209,7 @@ mod sealed {
         ) -> Result<hyper::Request<hyper::Body>, Error> {
             println!("start building....");
             let request_body = request.into_json();
-
+            println!("Outgoing request: {}", request_body);
             tracing::debug!("Outgoing request: {}", request_body);
 
             let mut request = hyper::Request::builder()
