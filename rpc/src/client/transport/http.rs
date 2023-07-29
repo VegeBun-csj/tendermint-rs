@@ -207,7 +207,7 @@ mod sealed {
             &self,
             request: R,
         ) -> Result<hyper::Request<hyper::Body>, Error> {
-            println!("start building....");
+            println!("start building....:{:?}", request);
             let request_body = request.into_json();
             println!("Outgoing request: {}", request_body);
             tracing::debug!("Outgoing request: {}", request_body);
