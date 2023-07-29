@@ -196,7 +196,7 @@ mod sealed {
             let response = self.inner.request(request).await.map_err(Error::hyper)?;
             println!("start res body....:{:?}", response);
             let response_body = response_to_string(response).await?;
-            tracing::debug!("Incoming response: {}", response_body);
+            println!("Incoming response: {}", response_body);
             R::Response::from_string(&response_body)
         }
     }
