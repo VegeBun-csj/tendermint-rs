@@ -280,7 +280,7 @@ pub struct ResponseInitChain {
     pub app_hash: ::prost::bytes::Bytes,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize)]
 pub struct ResponseQuery {
     #[prost(uint32, tag = "1")]
     pub code: u32,
