@@ -1,3 +1,4 @@
+use serde::Serialize;
 #[derive(::serde::Deserialize, ::serde::Serialize)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -39,7 +40,7 @@ pub struct DominoOp {
 /// The data could be arbitrary format, providing nessecary data
 /// for example neighbouring node hash
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize)]
 pub struct ProofOp {
     #[prost(string, tag = "1")]
     pub r#type: ::prost::alloc::string::String,
@@ -50,7 +51,7 @@ pub struct ProofOp {
 }
 /// ProofOps is Merkle proof defined by the list of ProofOps
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message, Serialize)]
 pub struct ProofOps {
     #[prost(message, repeated, tag = "1")]
     pub ops: ::prost::alloc::vec::Vec<ProofOp>,
